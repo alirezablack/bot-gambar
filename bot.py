@@ -9,9 +9,15 @@ from datetime import datetime, timedelta
 import threading
 import time
 
-TOKEN = 'توکن_بات_تو'
+from telebot import TeleBot, types
+import openai
+
+# ====== توکن و کلید مستقیم ======
+TOKEN = "8290410724:AAG0T-UZA7ZEY6m-ni_mfoYgXqYgj_bPg-w"
+OPENAI_KEY = "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"
+
 bot = TeleBot(TOKEN)
-logging.basicConfig(level=logging.INFO)
+openai.api_key = OPENAI_KEY
 
 ROBOT_NAME = "قمبر"
 
@@ -201,3 +207,4 @@ threading.Thread(target=daily_tasks, daemon=True).start()
 
 logging.info("Bot is running...")
 bot.infinity_polling()
+
